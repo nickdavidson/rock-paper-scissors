@@ -8,13 +8,14 @@ function userPlay() {
 
 // Computer randomly generates RPS selection;
 function computerPlay() {
-    let cpuChoices = ["rock", "paper", "scisscors"];
+    let cpuChoices = ["rock", "paper", "scissors"];
     return cpuChoices[Math.floor(Math.random()*cpuChoices.length)];     //randomly generate
 }
 
 // Compare the two selections and determine the winner;
 function playRound(playerSelection, computerSelection){
     let winner = "";
+
     if(playerSelection === computerSelection){
         winner = "draw";
     }
@@ -53,9 +54,22 @@ function playRound(playerSelection, computerSelection){
 }
 
 // Do that 5 times, keeping score.
+let playerSelection = "";
+let computerSelection = "";
 
-const playerSelection = "";
-const computerSelection = "";
+for(let i = 0; i < 5; i++){
+    console.log(i+1);
+
+    playerSelection = userPlay();
+    console.log("Player chose " + playerSelection);
+
+    computerSelection = computerPlay();
+    console.log("Computer chose " + computerSelection);
+
+    console.log("Winner: " + playRound(playerSelection, computerSelection));
+}
+
+
 
 
 // console.log(playerSelection());
