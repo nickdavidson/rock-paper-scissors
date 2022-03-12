@@ -15,4 +15,7 @@ function computerPlay() {
 // Compare the two selections and determine the winner;
 // Do that 5 times, keeping score.
 
+const playerSelection = "";
+const computerSelection = "";
+
 // console.log(playerSelection());
