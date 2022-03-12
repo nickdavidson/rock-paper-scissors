@@ -1,13 +1,13 @@
 console.log("Script is working");
 
 // User picks Rock, Paper, or Scissors (RPS);
-function playerSelection() {
+function userPlay() {
     let playerSelection = prompt("Rock! Paper! Scissors!");
     return playerSelection.toLowerCase();   //return input normalized to lowercase
 }
 
 // Computer randomly generates RPS selection;
-function computerSelection() {
+function computerPlay() {
     let cpuChoices = ["rock", "paper", "scisscors"];
     return cpuChoices[Math.floor(Math.random()*cpuChoices.length)];     //randomly generate
 }
