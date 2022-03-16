@@ -79,6 +79,10 @@ function getWinner(scoreboard) {
     }
 }
 
+function capitalize(string) {
+    return string.substring(0,1).toUpperCase()+string.substring(1);
+}
+
 function game() {
     let playerSelection = "";
     let computerSelection = "";
@@ -92,12 +96,13 @@ function game() {
 
         let winner = playRound(playerSelection, computerSelection);
 
-        console.log(playerSelection.normalize() + " (Player) " + "vs " + computerSelection.normalize() + " (CPU)");
-        console.log(winner + " wins!");
+        console.log(capitalize(playerSelection) + " (Player) " + "vs " + capitalize(computerSelection) + " (CPU)");
+        console.log(capitalize(winner) + " wins!");
 
         console.log(updateScore(winner, scoreboard));
-        console.log(getWinner(scoreboard));
     }
+
+    console.log(getWinner(scoreboard));
 }
 
 // Do that 5 times, keeping score.
