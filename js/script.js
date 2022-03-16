@@ -56,6 +56,7 @@ function playRound(playerSelection, computerSelection){
 function game() {
     let playerSelection = "";
     let computerSelection = "";
+    let scoreboard = [0, 0];
 
     for(let i = 0; i < 5; i++){
         console.log(i+1);
@@ -66,7 +67,17 @@ function game() {
         computerSelection = computerPlay();
         console.log("Computer chose " + computerSelection);
 
-        console.log("Winner: " + playRound(playerSelection, computerSelection));
+        let winner = playRound(playerSelection, computerSelection);
+        console.log("Winner: " + winner);
+
+        if(winner==="player"){
+            scoreboard[0]+=1;
+        }
+        else if(winner==="computer"){
+            scoreboard[1]+=1;
+        }
+
+        console.log(scoreboard);
     }
 }
 
