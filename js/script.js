@@ -53,6 +53,17 @@ function playRound(playerSelection, computerSelection){
     return winner;
 }
 
+function updateScore(winner, scoreboard) {
+    if(winner==="player"){
+        scoreboard[0]+=1;
+    }
+    else if(winner==="computer"){
+        scoreboard[1]+=1;
+    }
+
+    return scoreboard;
+}
+
 function game() {
     let playerSelection = "";
     let computerSelection = "";
@@ -62,22 +73,14 @@ function game() {
         console.log(i+1);
 
         playerSelection = userPlay();
-        console.log("Player chose " + playerSelection);
-
         computerSelection = computerPlay();
-        console.log("Computer chose " + computerSelection);
+        
+        console.log(playerSelection + " (Player) " + "vs " + computerSelection + " (CPU)");
 
         let winner = playRound(playerSelection, computerSelection);
-        console.log("Winner: " + winner);
+        console.log(winner + " wins!");
 
-        if(winner==="player"){
-            scoreboard[0]+=1;
-        }
-        else if(winner==="computer"){
-            scoreboard[1]+=1;
-        }
-
-        console.log(scoreboard);
+        console.log(updateScore(winner, scoreboard));
     }
 }
 
