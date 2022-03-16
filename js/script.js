@@ -64,6 +64,21 @@ function updateScore(winner, scoreboard) {
     return scoreboard;
 }
 
+function getWinner(scoreboard) {
+    if(scoreboard[0]===scoreboard[1]){
+        return "Game was a draw!";
+    }
+    else if(scoreboard[0]>scoreboard[1]) {
+        return "Player wins the game!";
+    }
+    else if(scoreboard[0]<scoreboard[1]) {
+        return "Computer wins the game!";
+    }
+    else {
+        return "Could not determine a winner.";
+    }
+}
+
 function game() {
     let playerSelection = "";
     let computerSelection = "";
@@ -74,13 +89,14 @@ function game() {
 
         playerSelection = userPlay();
         computerSelection = computerPlay();
-        
-        console.log(playerSelection + " (Player) " + "vs " + computerSelection + " (CPU)");
 
         let winner = playRound(playerSelection, computerSelection);
+
+        console.log(playerSelection.normalize() + " (Player) " + "vs " + computerSelection.normalize() + " (CPU)");
         console.log(winner + " wins!");
 
         console.log(updateScore(winner, scoreboard));
+        console.log(getWinner(scoreboard));
     }
 }
 
