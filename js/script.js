@@ -53,21 +53,25 @@ function playRound(playerSelection, computerSelection){
     return winner;
 }
 
-// Do that 5 times, keeping score.
-let playerSelection = "";
-let computerSelection = "";
+function game() {
+    let playerSelection = "";
+    let computerSelection = "";
 
-for(let i = 0; i < 5; i++){
-    console.log(i+1);
+    for(let i = 0; i < 5; i++){
+        console.log(i+1);
 
-    playerSelection = userPlay();
-    console.log("Player chose " + playerSelection);
+        playerSelection = userPlay();
+        console.log("Player chose " + playerSelection);
 
-    computerSelection = computerPlay();
-    console.log("Computer chose " + computerSelection);
+        computerSelection = computerPlay();
+        console.log("Computer chose " + computerSelection);
 
-    console.log("Winner: " + playRound(playerSelection, computerSelection));
+        console.log("Winner: " + playRound(playerSelection, computerSelection));
+    }
 }
+
+// Do that 5 times, keeping score.
+game();
 
 
 
