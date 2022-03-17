@@ -72,6 +72,23 @@ function updateScore(winner, scoreboard) {
     return scoreboard;
 }
 
+function displayScore(scoreboard){
+    let leader = "Player";
+    let score = scoreboard[0] + "-" + scoreboard[1];
+    let display = `${leader} leads ${score}.`
+
+    if(scoreboard[0]<scoreboard[1]){
+        leader = "Computer";
+        score = scoreboard[1] + "-" + scoreboard[0];
+        display = `${leader} leads ${score}.`
+    }
+    else if(scoreboard[0]===scoreboard[1]){
+        display = `Game is tied ${score}.`;
+    }
+    
+    console.log(display);
+}
+
 function getWinner(scoreboard) {
     if(scoreboard[0]===scoreboard[1]){
         return "Game was a draw!";
@@ -105,8 +122,8 @@ function game() {
 
         console.log("Round " + (i+1) + ": " + capitalize(playerSelection) + " (Player) " + "vs " + capitalize(computerSelection) + " (CPU)");
         console.log(capitalize(winner) + " wins!");
-
-        console.log(updateScore(winner, scoreboard));
+        updateScore(winner, scoreboard);
+        displayScore(scoreboard);
     }
 
     console.log(getWinner(scoreboard));
