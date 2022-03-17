@@ -120,8 +120,14 @@ function game() {
 
         let winner = playRound(playerSelection, computerSelection);
 
-        console.log("Round " + (i+1) + ": " + capitalize(playerSelection) + " (Player) " + "vs " + capitalize(computerSelection) + " (CPU)");
-        console.log(capitalize(winner) + " wins!");
+        console.log("Round " + (i+1) + ": " + "(Player) " + capitalize(playerSelection) +  "vs " + capitalize(computerSelection) + " (CPU)");
+        if(winner!=="draw"){
+            console.log(`${capitalize(winner)} wins the round!`);
+        }
+        else{
+            console.log(`${capitalize(winner)}!`);
+        }
+        
         updateScore(winner, scoreboard);
         displayScore(scoreboard);
     }
