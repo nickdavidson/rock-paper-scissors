@@ -1,10 +1,18 @@
-console.log("Script is working");
-
 // User picks Rock, Paper, or Scissors (RPS);
+
 function userPlay() {
     let playerSelection = prompt("Rock! Paper! Scissors!");
-    return playerSelection.toLowerCase();   //return input normalized to lowercase
+    playerSelection = playerSelection.toLowerCase();
+
+    while(playerSelection!=="rock" && playerSelection!=="paper" && playerSelection !=="scissors"){
+        console.log("Invalid entry - try again!");
+        playerSelection = prompt("Rock! Paper! Scissors!");
+        playerSelection = playerSelection.toLowerCase();
+    }
+
+    return playerSelection;
 }
+    
 
 // Computer randomly generates RPS selection;
 function computerPlay() {
@@ -89,14 +97,13 @@ function game() {
     let scoreboard = [0, 0];
 
     for(let i = 0; i < 5; i++){
-        console.log(i+1);
 
         playerSelection = userPlay();
         computerSelection = computerPlay();
 
         let winner = playRound(playerSelection, computerSelection);
 
-        console.log(capitalize(playerSelection) + " (Player) " + "vs " + capitalize(computerSelection) + " (CPU)");
+        console.log("Round " + (i+1) + ": " + capitalize(playerSelection) + " (Player) " + "vs " + capitalize(computerSelection) + " (CPU)");
         console.log(capitalize(winner) + " wins!");
 
         console.log(updateScore(winner, scoreboard));
