@@ -1,5 +1,4 @@
-// User picks Rock, Paper, or Scissors (RPS);
-
+// User picks Rock, Paper, or Scissors (RPS)
 function userPlay() {
     let playerSelection = prompt("Rock! Paper! Scissors!");
     playerSelection = playerSelection.toLowerCase();
@@ -14,7 +13,7 @@ function userPlay() {
 }
     
 
-// Computer randomly generates RPS selection;
+// Computer randomly generates selection;
 function computerPlay() {
     let cpuChoices = ["rock", "paper", "scissors"];
     return cpuChoices[Math.floor(Math.random()*cpuChoices.length)];     //randomly generate
@@ -61,6 +60,7 @@ function playRound(playerSelection, computerSelection){
     return winner;
 }
 
+//Check the winner, then increment that winners index in the array by 1;
 function updateScore(winner, scoreboard) {
     if(winner==="player"){
         scoreboard[0]+=1;
@@ -72,6 +72,7 @@ function updateScore(winner, scoreboard) {
     return scoreboard;
 }
 
+//Output the current leading player and the current score to the console
 function displayScore(scoreboard){
     let leader = "Player";
     let score = scoreboard[0] + "-" + scoreboard[1];
@@ -89,6 +90,7 @@ function displayScore(scoreboard){
     console.log(display);
 }
 
+//Get the greater of the two scores in the scoreboard array, then output the respective inner to console
 function getWinner(scoreboard) {
     if(scoreboard[0]===scoreboard[1]){
         return "Game was a draw!";
@@ -104,10 +106,12 @@ function getWinner(scoreboard) {
     }
 }
 
+//Capitalize the first letter of a string
 function capitalize(string) {
     return string.substring(0,1).toUpperCase()+string.substring(1);
 }
 
+//Gameplay loop
 function game(rounds) {
     let playerSelection = "";
     let computerSelection = "";
@@ -115,12 +119,17 @@ function game(rounds) {
 
     for(let i = 0; i < rounds; i++){
 
+        //Get player and computer selections
         playerSelection = userPlay();
         computerSelection = computerPlay();
 
+        //Compare the two selections and determine the winner of the round
         let winner = playRound(playerSelection, computerSelection);
 
+        //Output the selection of the player and computer
         console.log("Round " + (i+1) + ": " + "(Player) " + capitalize(playerSelection) +  " vs " + capitalize(computerSelection) + " (CPU)");
+        
+        //Output who won the round
         if(winner!=="draw"){
             console.log(`${capitalize(winner)} wins the round!`);
         }
@@ -128,17 +137,16 @@ function game(rounds) {
             console.log(`${capitalize(winner)}!`);
         }
         
+        //Update the scoreboard array
         updateScore(winner, scoreboard);
+
+        //Display the current score
         displayScore(scoreboard);
     }
 
+    //Output the winner of the game
     console.log(getWinner(scoreboard));
 }
 
-// Do that 5 times, keeping score.
+// Run the game loop, passing the number of rounds as an argument
 game(5);
-
-
-
-
-// console.log(playerSelection());
