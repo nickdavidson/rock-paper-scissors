@@ -108,19 +108,19 @@ function capitalize(string) {
     return string.substring(0,1).toUpperCase()+string.substring(1);
 }
 
-function game() {
+function game(rounds) {
     let playerSelection = "";
     let computerSelection = "";
     let scoreboard = [0, 0];
 
-    for(let i = 0; i < 5; i++){
+    for(let i = 0; i < rounds; i++){
 
         playerSelection = userPlay();
         computerSelection = computerPlay();
 
         let winner = playRound(playerSelection, computerSelection);
 
-        console.log("Round " + (i+1) + ": " + "(Player) " + capitalize(playerSelection) +  "vs " + capitalize(computerSelection) + " (CPU)");
+        console.log("Round " + (i+1) + ": " + "(Player) " + capitalize(playerSelection) +  " vs " + capitalize(computerSelection) + " (CPU)");
         if(winner!=="draw"){
             console.log(`${capitalize(winner)} wins the round!`);
         }
@@ -136,7 +136,7 @@ function game() {
 }
 
 // Do that 5 times, keeping score.
-game();
+game(5);
 
 
 
