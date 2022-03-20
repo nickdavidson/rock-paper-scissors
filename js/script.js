@@ -129,13 +129,28 @@ function game(rounds) {
         //Output the selection of the player and computer
         console.log("Round " + (i+1) + ": " + "(Player) " + capitalize(playerSelection) +  " vs " + capitalize(computerSelection) + " (CPU)");
         
+        let winningMove;
+        //Create winning move string based on the winner and loser's selection
+        if(winner==="player"){
+            winningMove = ` ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}!`;
+        }
+        else if(winner==="computer"){
+            winningMove = ` ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}!`;
+        }
+        else {
+            winningMove = "";
+        }
+
         //Output who won the round
         if(winner!=="draw"){
-            console.log(`${capitalize(winner)} wins the round!`);
+            console.log(`${capitalize(winner)} wins the round!${winningMove}`);
         }
         else{
             console.log(`${capitalize(winner)}!`);
         }
+
+        
+
         
         //Update the scoreboard array
         updateScore(winner, scoreboard);
