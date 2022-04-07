@@ -57,6 +57,8 @@ function playRound(playerSelection, computerSelection){
         console.log("Invalid choice - please choose again.");
     }
 
+    setRoundWinner(winner);
+
     return winner;
 }
 
@@ -166,9 +168,17 @@ function game(rounds) {
 function buttonPlay(){
     let comp = computerPlay();
     console.log(this.id + " " + comp);
-    playRound(this.id, computerPlay());
+    playRound(this.id, comp);
+    console.log(getRoundWinner());
 }
 
+function setRoundWinner(winner){
+    ROUND_WINNER = winner;
+}
+
+function getRoundWinner(){
+    return ROUND_WINNER;
+}
 
 const container = document.querySelector("#container");
 
