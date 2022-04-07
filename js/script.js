@@ -163,5 +163,30 @@ function game(rounds) {
     console.log(getWinner(scoreboard));
 }
 
-// Run the game loop, passing the number of rounds as an argument
-game(5);
+function buttonPlay(){
+    let comp = computerPlay();
+    console.log(this.id + " " + comp);
+    playRound(this.id, computerPlay());
+}
+
+
+const container = document.querySelector("#container");
+
+const rockButton = document.createElement("button");
+rockButton.innerHTML = "ROCK";
+rockButton.id = "rock";
+rockButton.addEventListener('click', buttonPlay);
+
+const paperButton = document.createElement("button");
+paperButton.textContent = "PAPER";
+paperButton.id = "paper";
+paperButton.addEventListener('click', buttonPlay);
+
+const scissorsButton = document.createElement("button");
+scissorsButton.textContent = "SCISSORS";
+scissorsButton.id ="scissors"
+scissorsButton.addEventListener('click', buttonPlay);
+
+container.appendChild(rockButton);
+container.appendChild(paperButton);
+container.appendChild(scissorsButton);
