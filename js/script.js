@@ -170,6 +170,9 @@ function buttonPlay(){
     console.log(this.id + " " + comp);
     playRound(this.id, comp);
     console.log(getRoundWinner());
+    
+    outputText = capitalize(getRoundWinner()) + " wins!";
+    outputBox.textContent = outputText;
 }
 
 function setRoundWinner(winner){
@@ -197,6 +200,15 @@ scissorsButton.textContent = "SCISSORS";
 scissorsButton.id ="scissors"
 scissorsButton.addEventListener('click', buttonPlay);
 
+let outputText = "Rock, Paper, Scissors!"
+
+const outputBox = document.createElement("div");
+outputBox.style = "border: 1px solid black;"
+outputBox.textContent = outputText;
+
+
+
+container.appendChild(outputBox);
 container.appendChild(rockButton);
 container.appendChild(paperButton);
 container.appendChild(scissorsButton);
