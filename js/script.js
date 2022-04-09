@@ -63,7 +63,7 @@ function playRound(playerSelection, computerSelection){
 }
 
 //Check the winner, then increment that winners index in the array by 1;
-function updateScore(winner, scoreboard) {
+function updateScore(winner) {
     if(winner==="player"){
         scoreboard[0]+=1;
     }
@@ -71,7 +71,7 @@ function updateScore(winner, scoreboard) {
         scoreboard[1]+=1;
     }
 
-    return scoreboard;
+    scoreText.textContent = `${scoreboard[0]} - ${scoreboard[1]}`;
 }
 
 //Output the current leading player and the current score to the console
@@ -117,7 +117,6 @@ function capitalize(string) {
 function game(rounds) {
     let playerSelection = "";
     let computerSelection = "";
-    let scoreboard = [0, 0];
 
     for(let i = 0; i < rounds; i++){
 
@@ -168,8 +167,9 @@ function game(rounds) {
 function buttonPlay(){
     let comp = computerPlay();
     console.log(this.id + " " + comp);
+    
     playRound(this.id, comp);
-    console.log(getRoundWinner());
+    updateScore(getRoundWinner());
     
     outputText = capitalize(getRoundWinner()) + " wins!";
     outputBox.textContent = outputText;
@@ -206,8 +206,12 @@ const outputBox = document.createElement("div");
 outputBox.style = "border: 1px solid black;"
 outputBox.textContent = outputText;
 
+let scoreboard = [0,0];
 
+const scoreText = document.createElement("div");
+scoreText.textContent = `${scoreboard[0]} - ${scoreboard[1]}`;
 
+container.appendChild(scoreText);
 container.appendChild(outputBox);
 container.appendChild(rockButton);
 container.appendChild(paperButton);
