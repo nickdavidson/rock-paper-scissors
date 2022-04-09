@@ -130,25 +130,7 @@ function game(rounds) {
         //Output the selection of the player and computer
         console.log("Round " + (i+1) + ": " + "(Player) " + capitalize(playerSelection) +  " vs " + capitalize(computerSelection) + " (CPU)");
         
-        let winningMove;
-        //Create winning move string based on the winner and loser's selection
-        if(winner==="player"){
-            winningMove = ` ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}!`;
-        }
-        else if(winner==="computer"){
-            winningMove = ` ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}!`;
-        }
-        else {
-            winningMove = "";
-        }
-
-        //Output who won the round
-        if(winner!=="draw"){
-            console.log(`${capitalize(winner)} wins the round!${winningMove}`);
-        }
-        else{
-            console.log(`${capitalize(winner)}!`);
-        }
+        console.log(generateWinnerText(winner, playerSelection, computerSelection));
 
         
 
@@ -164,15 +146,43 @@ function game(rounds) {
     console.log(getWinner(scoreboard));
 }
 
+function generateWinnerText(winner, playerSelection, computerSelection) {
+    let winningMove;
+    //Create winning move string based on the winner and loser's selection
+    if (winner === "player") {
+        winningMove = ` ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}!`;
+    }
+    else if (winner === "computer") {
+        winningMove = ` ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}!`;
+    }
+    else {
+        winningMove = "";
+    }
+
+    //Output who won the round
+    if (winner !== "draw") {
+        winningMove += `\n${capitalize(winner)} wins the round!`;
+    }
+    else {
+        winningMove += `\n${capitalize(winner)}!`;
+    }
+
+    return winningMove;
+}
+
 function buttonPlay(){
-    let comp = computerPlay();
-    console.log(this.id + " " + comp);
+    let computerTurn = computerPlay();
+    let playerTurn = this.id;
+    console.log(playerTurn+ " " + computerTurn);
     
-    playRound(this.id, comp);
-    updateScore(getRoundWinner());
+    playRound(playerTurn, computerTurn);
+
+    let winner = getRoundWinner()
     
-    outputText = capitalize(getRoundWinner()) + " wins!";
+    outputText = generateWinnerText(winner, playerTurn, computerTurn);
     outputBox.textContent = outputText;
+
+    updateScore(winner);
 }
 
 function setRoundWinner(winner){
