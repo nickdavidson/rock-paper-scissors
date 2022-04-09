@@ -150,10 +150,10 @@ function generateWinnerText(winner, playerSelection, computerSelection) {
     let winningMove;
     //Create winning move string based on the winner and loser's selection
     if (winner === "player") {
-        winningMove = ` ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}!`;
+        winningMove = `${capitalize(playerSelection)} beats ${capitalize(computerSelection)}!` + "\n";
     }
     else if (winner === "computer") {
-        winningMove = ` ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}!`;
+        winningMove = `${capitalize(computerSelection)} beats ${capitalize(playerSelection)}!` + "\n";
     }
     else {
         winningMove = "";
@@ -161,10 +161,10 @@ function generateWinnerText(winner, playerSelection, computerSelection) {
 
     //Output who won the round
     if (winner !== "draw") {
-        winningMove += `\n${capitalize(winner)} wins the round!`;
+        winningMove += `${capitalize(winner)} wins the round!`;
     }
     else {
-        winningMove += `\n${capitalize(winner)}!`;
+        winningMove += `${capitalize(winner)}!`;
     }
 
     return winningMove;
@@ -214,6 +214,7 @@ let outputText = "Rock, Paper, Scissors!"
 
 const outputBox = document.createElement("div");
 outputBox.style = "border: 1px solid black;"
+outputBox.id = "output"
 outputBox.textContent = outputText;
 
 let scoreboard = [0,0];
