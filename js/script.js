@@ -212,7 +212,7 @@ scissorsButton.addEventListener('click', buttonPlay);
 
 let outputText = "Rock, Paper, Scissors!"
 
-const outputBox = document.createElement("div");
+const outputBox = document.querySelector("#output");
 outputBox.style = "border: 1px solid black;"
 outputBox.id = "output"
 outputBox.textContent = outputText;
