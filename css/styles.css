@@ -3,4 +3,24 @@ div #output {
     height: 2.5em;
     width: 500px;
     margin: 0 auto;
+    text-align: center;
+}
+
+div #buttons {
+    background-color: black;
+    margin: 0 auto;
+}
+
+div #score {
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+div #buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
 }

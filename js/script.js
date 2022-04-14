@@ -194,6 +194,9 @@ function getRoundWinner(){
 }
 
 const container = document.querySelector("#container");
+const outputBox = document.querySelector("#output");
+const inputBox = document.querySelector("#input");
+const scoreText = document.querySelector("#score");
 
 const rockButton = document.createElement("button");
 rockButton.innerHTML = "ROCK";
@@ -212,18 +215,23 @@ scissorsButton.addEventListener('click', buttonPlay);
 
 let outputText = "Rock, Paper, Scissors!"
 
-const outputBox = document.querySelector("#output");
+const buttonSet = document.createElement('div');
+buttonSet.id = "buttons";
+buttonSet.appendChild(rockButton);
+buttonSet.appendChild(paperButton);
+buttonSet.appendChild(scissorsButton);
+
+inputBox.appendChild(buttonSet);
+
 outputBox.style = "border: 1px solid black;"
 outputBox.id = "output"
 outputBox.textContent = outputText;
 
+
+
 let scoreboard = [0,0];
 
-const scoreText = document.createElement("div");
+
 scoreText.textContent = `${scoreboard[0]} - ${scoreboard[1]}`;
 
-container.appendChild(scoreText);
-container.appendChild(outputBox);
-container.appendChild(rockButton);
-container.appendChild(paperButton);
-container.appendChild(scissorsButton);
+
