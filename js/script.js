@@ -176,7 +176,7 @@ function buttonPlay(){
     console.log(playerTurn+ " " + computerTurn);
     
     playRound(playerTurn, computerTurn);
-
+    setImages(playerTurn, computerTurn);
     let winner = getRoundWinner()
     
     outputText = generateWinnerText(winner, playerTurn, computerTurn);
@@ -197,6 +197,10 @@ const container = document.querySelector("#container");
 const outputBox = document.querySelector("#output");
 const inputBox = document.querySelector("#input");
 const scoreText = document.querySelector("#score");
+
+const ROCK_IMAGE = "./img/rock.png";
+const PAPER_IMAGE = "./img/paper.png";
+const SCISSORS_IMAGE = "./img/scissors.png";
 
 const rockButton = document.createElement("button");
 rockButton.innerHTML = "ROCK";
@@ -234,4 +238,42 @@ let scoreboard = [0,0];
 
 scoreText.textContent = `${scoreboard[0]} - ${scoreboard[1]}`;
 
+const playerImage = document.querySelector('#player-img');
+const cpuImage = document.querySelector('#cpu-img');
 
+function setPlayerImage(selection){
+    switch (selection) {
+        case 'rock':
+            playerImage.src = ROCK_IMAGE;
+            break;
+        case 'paper':
+            playerImage.src = PAPER_IMAGE;
+            break;
+        case 'scissors':
+            playerImage.src = SCISSORS_IMAGE;
+            break;
+        default:
+            console.log("Invalid Player image selector");
+    }
+}
+
+function setCPUImage(selection){
+    switch (selection) {
+        case 'rock':
+            cpuImage.src = ROCK_IMAGE;
+            break;
+        case 'paper':
+            cpuImage.src = PAPER_IMAGE;
+            break;
+        case 'scissors':
+            cpuImage.src = SCISSORS_IMAGE;
+            break;
+        default:
+            console.log("Invalid CPU image selector");
+    }
+}
+
+function setImages(playerSelect, computerSelect){
+    setPlayerImage(playerSelect);
+    setCPUImage(computerSelect);
+}
