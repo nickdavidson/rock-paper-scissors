@@ -65,13 +65,14 @@ function playRound(playerSelection, computerSelection){
 //Check the winner, then increment that winners index in the array by 1;
 function updateScore(winner) {
     if(winner==="player"){
-        scoreboard[0]+=1;
+        scoreArray[0]+=1;
+        playerScore.textContent = `${scoreArray[0]}`;
     }
     else if(winner==="computer"){
-        scoreboard[1]+=1;
+        scoreArray[1]+=1;
+        cpuScore.textContent = `${scoreArray[1]}`
     }
 
-    scoreText.textContent = `${scoreboard[0]} - ${scoreboard[1]}`;
 }
 
 //Output the current leading player and the current score to the console
@@ -136,14 +137,14 @@ function game(rounds) {
 
         
         //Update the scoreboard array
-        updateScore(winner, scoreboard);
+        updateScore(winner, scoreArray);
 
         //Display the current score
-        displayScore(scoreboard);
+        displayScore(scoreArray);
     }
 
     //Output the winner of the game
-    console.log(getWinner(scoreboard));
+    console.log(getWinner(scoreArray));
 }
 
 function generateWinnerText(winner, playerSelection, computerSelection) {
@@ -197,6 +198,11 @@ const container = document.querySelector("#container");
 const outputBox = document.querySelector("#output");
 const inputBox = document.querySelector("#input");
 const scoreText = document.querySelector("#score");
+const playerScore = document.querySelector("#player-score");
+const cpuScore = document.querySelector("#cpu-score");
+
+playerScore.textContent = 0;
+cpuScore.textContent = 0;
 
 const ROCK_IMAGE = "./img/rock.png";
 const PAPER_IMAGE = "./img/paper.png";
@@ -233,10 +239,9 @@ outputBox.textContent = outputText;
 
 
 
-let scoreboard = [0,0];
+let scoreArray = [0,0];
 
 
-scoreText.textContent = `${scoreboard[0]} - ${scoreboard[1]}`;
 
 const playerImage = document.querySelector('#player-img');
 const cpuImage = document.querySelector('#cpu-img');

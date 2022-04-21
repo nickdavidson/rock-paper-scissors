@@ -11,12 +11,6 @@ div #buttons {
     margin: 0 auto;
 }
 
-div #score {
-    width: 500px;
-    margin: 0 auto;
-    text-align: center;
-}
-
 div #buttons {
     display: flex;
     justify-content: space-evenly;
@@ -34,6 +28,13 @@ div #game-screen {
     margin: 0 auto;
     border: 1px solid black;
     border-bottom: none;
+}
+
+#scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    margin: 0 auto;
 }
 
 
