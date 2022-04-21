@@ -73,6 +73,10 @@ function updateScore(winner) {
         cpuScore.textContent = `${scoreArray[1]}`
     }
 
+    if(scoreArray[0]===WIN_CONDITION || scoreArray[1]===WIN_CONDITION){
+        declareWinner(winner);
+    }
+
 }
 
 //Output the current leading player and the current score to the console
@@ -188,6 +192,7 @@ function buttonPlay(){
 
 function setRoundWinner(winner){
     ROUND_WINNER = winner;
+
 }
 
 function getRoundWinner(){
@@ -200,6 +205,9 @@ const inputBox = document.querySelector("#input");
 const scoreText = document.querySelector("#score");
 const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score");
+
+const NUM_ROUNDS = 5;
+const WIN_CONDITION = Math.floor(NUM_ROUNDS/2) + 1;
 
 playerScore.textContent = 0;
 cpuScore.textContent = 0;
@@ -281,4 +289,9 @@ function setCPUImage(selection){
 function setImages(playerSelect, computerSelect){
     setPlayerImage(playerSelect);
     setCPUImage(computerSelect);
+}
+
+function declareWinner(winner){
+    outputBox.textContent += `\n${capitalize(winner)} wins the game!`;
+    buttonSet.style.display = "none";
 }
