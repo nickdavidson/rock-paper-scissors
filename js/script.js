@@ -245,11 +245,26 @@ outputBox.style = "border: 1px solid black;"
 outputBox.id = "output"
 outputBox.textContent = outputText;
 
+const restartButton = document.createElement("button");
+restartButton.innerHTML = "Play again?";
+restartButton.id = "restart";
+restartButton.addEventListener('click', restartGame);
 
+function restartGame(){
+    playerScore.textContent = `${scoreArray[0]=0}`;
+    cpuScore.textContent = `${scoreArray[1]=0}`;
+
+    outputBox.textContent = "";
+    setImages("rock", "rock");
+
+    buttonSet.appendChild(rockButton);
+    buttonSet.appendChild(paperButton);
+    buttonSet.appendChild(scissorsButton);
+
+    buttonSet.removeChild(restartButton);
+}
 
 let scoreArray = [0,0];
-
-
 
 const playerImage = document.querySelector('#player-img');
 const cpuImage = document.querySelector('#cpu-img');
@@ -293,5 +308,9 @@ function setImages(playerSelect, computerSelect){
 
 function declareWinner(winner){
     outputBox.textContent += `\n${capitalize(winner)} wins the game!`;
-    buttonSet.style.display = "none";
+    buttonSet.removeChild(rockButton);
+    buttonSet.removeChild(paperButton);
+    buttonSet.removeChild(scissorsButton);
+
+    buttonSet.appendChild(restartButton);
 }

@@ -6,17 +6,17 @@ div #output {
     text-align: center;
 }
 
-div #buttons {
+#input {
     background-color: black;
+    width: 500px;
     margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
 }
 
 div #buttons {
     display: flex;
     justify-content: space-evenly;
-    width: 500px;
-    margin: 0 auto;
-    text-align: center;
 }
 
 div #game-screen {
