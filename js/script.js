@@ -241,7 +241,6 @@ buttonSet.appendChild(scissorsButton);
 
 inputBox.appendChild(buttonSet);
 
-outputBox.style = "border: 1px solid black;"
 outputBox.id = "output"
 outputBox.textContent = outputText;
 

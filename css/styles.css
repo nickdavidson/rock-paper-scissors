@@ -4,6 +4,8 @@ div #output {
     width: 500px;
     margin: 0 auto;
     text-align: center;
+    border: 1px solid black;
+    border-top: none;
 }
 
 #input {
@@ -23,11 +25,10 @@ div #game-screen {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
+    width: 600px;
     height: 500px;
     margin: 0 auto;
     border: 1px solid black;
-    border-bottom: none;
 }
 
 #scoreboard {
@@ -39,12 +40,10 @@ div #game-screen {
 
 
 #player-img {
-    width: 200px;
     height: 200px;
 }
 
 #cpu-img {
-    width: 200px;
     height: 200px;
     transform: scaleX(-1);
 }
