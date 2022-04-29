@@ -202,7 +202,6 @@ function getRoundWinner(){
 const container = document.querySelector("#container");
 const outputBox = document.querySelector("#output");
 const inputBox = document.querySelector("#input");
-const scoreText = document.querySelector("#score");
 const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score");
 
