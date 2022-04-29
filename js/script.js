@@ -218,16 +218,19 @@ const SCISSORS_IMAGE = "./img/scissors.png";
 const rockButton = document.createElement("button");
 rockButton.innerHTML = "ROCK";
 rockButton.id = "rock";
+rockButton.className = "play-button";
 rockButton.addEventListener('click', buttonPlay);
 
 const paperButton = document.createElement("button");
 paperButton.textContent = "PAPER";
 paperButton.id = "paper";
+paperButton.className = "play-button";
 paperButton.addEventListener('click', buttonPlay);
 
 const scissorsButton = document.createElement("button");
 scissorsButton.textContent = "SCISSORS";
 scissorsButton.id ="scissors"
+scissorsButton.className = "play-button";
 scissorsButton.addEventListener('click', buttonPlay);
 
 let outputText = "Rock, Paper, Scissors!"
