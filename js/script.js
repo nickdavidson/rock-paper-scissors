@@ -186,8 +186,9 @@ function buttonPlay(){
     
     outputText = generateWinnerText(winner, playerTurn, computerTurn);
     outputBox.textContent = outputText;
-
+    addRoundToLog();
     updateScore(winner);
+    currentRound++;
 }
 
 function setRoundWinner(winner){
@@ -204,8 +205,10 @@ const outputBox = document.querySelector("#output");
 const inputBox = document.querySelector("#input");
 const playerScore = document.querySelector("#player-score");
 const cpuScore = document.querySelector("#cpu-score");
+const gameLog = document.querySelector("#game-log");
 
 const NUM_ROUNDS = 5;
+let currentRound = 1;
 const WIN_CONDITION = Math.floor(NUM_ROUNDS/2) + 1;
 
 playerScore.textContent = 0;
@@ -249,6 +252,7 @@ outputBox.textContent = outputText;
 const restartButton = document.createElement("button");
 restartButton.innerHTML = "Play again?";
 restartButton.id = "restart";
+restartButton.className = "play-button";
 restartButton.addEventListener('click', restartGame);
 
 function restartGame(){
@@ -263,6 +267,9 @@ function restartGame(){
     buttonSet.appendChild(scissorsButton);
 
     buttonSet.removeChild(restartButton);
+
+    gameLog.replaceChildren();
+    currentRound = 1;
 }
 
 let scoreArray = [0,0];
@@ -314,4 +321,30 @@ function declareWinner(winner){
     buttonSet.removeChild(scissorsButton);
 
     buttonSet.appendChild(restartButton);
+}
+
+
+
+function addRoundToLog(){
+    const roundImages = document.createElement("div");
+    roundImages.className = "round-log-result";
+
+    const roundNum = document.createElement("span");
+    roundNum.textContent = `${currentRound}: `;
+    roundNum.style.paddingRight = "5px";
+
+    let playerThumb = document.createElement("img");
+    playerThumb.src = playerImage.src;
+    playerThumb.className = "round-thumb";
+
+    let cpuThumb = document.createElement("img");
+    cpuThumb.src = cpuImage.src;
+    cpuThumb.className = "round-thumb";
+    cpuThumb.style.transform = "scaleX(-1)";
+
+    roundImages.appendChild(roundNum);
+    roundImages.appendChild(playerThumb);
+    roundImages.appendChild(cpuThumb);
+
+    gameLog.appendChild(roundImages);
 }
