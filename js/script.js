@@ -266,7 +266,7 @@ function restartGame(){
     buttonSet.appendChild(paperButton);
     buttonSet.appendChild(scissorsButton);
 
-    buttonSet.removeChild(restartButton);
+    document.querySelector("#restart").removeChild(restartButton);
 
     const scoreBoxes = document.querySelectorAll("div.score-box");
     scoreBoxes.forEach(function(box){
@@ -342,7 +342,8 @@ function declareWinner(winner){
     buttonSet.removeChild(paperButton);
     buttonSet.removeChild(scissorsButton);
 
-    buttonSet.appendChild(restartButton);
+    //buttonSet.appendChild(restartButton);
+    document.querySelector("#restart").appendChild(restartButton);
 }
 
 

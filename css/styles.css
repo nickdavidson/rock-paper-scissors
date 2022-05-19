@@ -127,3 +127,12 @@ div #game-screen {
     overflow: auto;
     scrollbar-width: none;
 }
+
+#restart {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#restart button {
+    max-width: 160px;
+}
