@@ -186,7 +186,7 @@ function buttonPlay(){
     
     outputText = generateWinnerText(winner, playerTurn, computerTurn);
     outputBox.textContent = outputText;
-    addRoundToLog();
+    addRoundToLog(winner);
     updateScore(winner);
     currentRound++;
 }
@@ -325,7 +325,7 @@ function declareWinner(winner){
 
 
 
-function addRoundToLog(){
+function addRoundToLog(winner){
     const roundImages = document.createElement("div");
     roundImages.className = "round-log-result";
 
@@ -342,9 +342,28 @@ function addRoundToLog(){
     cpuThumb.className = "round-thumb";
     cpuThumb.style.transform = "scaleX(-1)";
 
+    let playerThumbDiv = document.createElement("div");
+    playerThumbDiv.append(playerThumb);
+    playerThumbDiv.style.width = "90px";
+    playerThumbDiv.style.textAlign = "center";
+
+    let cpuThumbDiv = document.createElement("div");
+    cpuThumbDiv.append(cpuThumb);
+    cpuThumbDiv.style.width = "90px";
+    cpuThumbDiv.style.textAlign = "center";
+
+    if(winner==="player"){
+        playerThumbDiv.style.border = "3px solid green";
+        playerThumbDiv.style.borderRadius = "5px";
+    }
+    else if(winner==="computer"){
+        cpuThumbDiv.style.border = "3px solid red";
+        cpuThumbDiv.style.borderRadius = "5px";
+    }
+
     roundImages.appendChild(roundNum);
-    roundImages.appendChild(playerThumb);
-    roundImages.appendChild(cpuThumb);
+    roundImages.appendChild(playerThumbDiv);
+    roundImages.appendChild(cpuThumbDiv);
 
     gameLog.appendChild(roundImages);
 }
