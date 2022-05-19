@@ -268,6 +268,12 @@ function restartGame(){
 
     buttonSet.removeChild(restartButton);
 
+    const scoreBoxes = document.querySelectorAll("div.score-box");
+    scoreBoxes.forEach(function(box){
+        box.style.border = "5px dotted black";
+        box.style.color = "black";
+    });
+
     gameLog.replaceChildren();
     currentRound = 1;
 }
@@ -315,6 +321,22 @@ function setImages(playerSelect, computerSelect){
 }
 
 function declareWinner(winner){
+
+    let winnerId;
+    let winnerColor = "green";
+
+    if(winner==="player"){
+        winnerId = "#player-score-box";
+    }
+    else {
+        winnerId = "#cpu-score-box"
+        winnerColor = "red";
+    }
+
+    const winnerBox = document.querySelector(winnerId);
+    winnerBox.style.border = `5px solid ${winnerColor}`;
+    winnerBox.style.color = winnerColor;
+
     outputBox.textContent += `\n${capitalize(winner)} wins the game!`;
     buttonSet.removeChild(rockButton);
     buttonSet.removeChild(paperButton);
