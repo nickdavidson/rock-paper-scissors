@@ -136,3 +136,12 @@ div #game-screen {
 #restart button {
     max-width: 160px;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.40;
+    filter: alpha(opacity=.40);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

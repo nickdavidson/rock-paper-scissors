@@ -262,9 +262,9 @@ function restartGame(){
     outputBox.textContent = "";
     setImages("rock", "rock");
 
-    buttonSet.appendChild(rockButton);
-    buttonSet.appendChild(paperButton);
-    buttonSet.appendChild(scissorsButton);
+    buttonSet.childNodes.forEach(function(button){
+        button.classList.remove("disabled");
+    });
 
     document.querySelector("#restart").removeChild(restartButton);
 
@@ -338,9 +338,13 @@ function declareWinner(winner){
     winnerBox.style.color = winnerColor;
 
     outputBox.textContent += `\n${capitalize(winner)} wins the game!`;
-    buttonSet.removeChild(rockButton);
-    buttonSet.removeChild(paperButton);
-    buttonSet.removeChild(scissorsButton);
+    // buttonSet.removeChild(rockButton);
+    // buttonSet.removeChild(paperButton);
+    // buttonSet.removeChild(scissorsButton);
+
+    buttonSet.childNodes.forEach(function(button){
+        button.classList.add("disabled");
+    });
 
     //buttonSet.appendChild(restartButton);
     document.querySelector("#restart").appendChild(restartButton);
