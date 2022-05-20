@@ -267,6 +267,7 @@ function restartGame(){
     });
 
     document.querySelector("#restart").removeChild(restartButton);
+    document.querySelector("#win-shout").textContent = "";
 
     const scoreBoxes = document.querySelectorAll("div.score-box");
     scoreBoxes.forEach(function(box){
@@ -324,29 +325,32 @@ function declareWinner(winner){
 
     let winnerId;
     let winnerColor = "green";
+    let winShout;
 
     if(winner==="player"){
         winnerId = "#player-score-box";
+        winShout = "You won the game!"
     }
     else {
         winnerId = "#cpu-score-box"
         winnerColor = "red";
+        winShout = "CPU won the game!"
     }
 
     const winnerBox = document.querySelector(winnerId);
     winnerBox.style.border = `5px solid ${winnerColor}`;
     winnerBox.style.color = winnerColor;
 
-    outputBox.textContent += `\n${capitalize(winner)} wins the game!`;
-    // buttonSet.removeChild(rockButton);
-    // buttonSet.removeChild(paperButton);
-    // buttonSet.removeChild(scissorsButton);
+    
+    
+
+    document.querySelector("#win-shout").textContent = winShout;
+    document.querySelector("#win-shout").style.color = winnerColor;
 
     buttonSet.childNodes.forEach(function(button){
         button.classList.add("disabled");
     });
 
-    //buttonSet.appendChild(restartButton);
     document.querySelector("#restart").appendChild(restartButton);
 }
 

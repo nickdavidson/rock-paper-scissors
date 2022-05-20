@@ -10,12 +10,14 @@ h1 {
 
 div #output {
     white-space: pre-wrap;
-    height: 3.5em;
+    height: 3em;
     width: 500px;
     margin: 0 auto;
+    padding-top: 12px;
     text-align: center;
     border: 1px solid black;
     border-top: none;
+    line-height: 125%;
 }
 
 #input {
@@ -34,6 +36,7 @@ div #buttons {
 
 div #game-screen {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 600px;
@@ -144,4 +147,11 @@ div #game-screen {
     filter: alpha(opacity=.40);
     -webkit-box-shadow: none;
     box-shadow: none;
+}
+
+#win-shout {
+    flex: 0 0 100%;
+    font-size: 1.75em;
+    text-align: center;
+    text-transform: uppercase;
 }
