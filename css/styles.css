@@ -155,3 +155,18 @@ div #game-screen {
     text-align: center;
     text-transform: uppercase;
 }
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 24px 0 24px 0;
+}
+
+footer p {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
